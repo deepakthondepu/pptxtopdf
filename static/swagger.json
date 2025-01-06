@@ -1,0 +1,37 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "PPTX to PDF Converter API",
+      "version": "1.0",
+      "description": "PPTX files to PDF files."
+    },
+    "paths": {
+      "/convert": {
+        "post": {
+          "summary": "Convert PPTX to PDF",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/pdf"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "file",
+              "type": "file",
+              "required": true,
+              "description": "PPTX file to be converted"
+            }
+          ],
+          "Please find the below responses codes": {
+            "200": {
+              "description": "PDF file returned"
+            },
+            "400": {
+              "description": "Invalid input"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      }
+    }
+  }
