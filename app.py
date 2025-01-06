@@ -11,6 +11,11 @@ API_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL, config={'app_name': "PPTX to PDF Converter"})
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
+# Root URL redirection to Swagger UI
+@app.route('/')
+def redirect_to_swagger():
+    return redirect('/swagger/#/default/post_convert')
+
 # converting function for PPTX to PDF
 @app.route('/convert', methods=['POST'])
 def convert_pptx_to_pdf():
